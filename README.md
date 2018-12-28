@@ -1,7 +1,29 @@
 # my-project
 
-> A Vue.js project
+这个dome是精简版
 
+完整版想在form提交事件中根据传递的参数，判断执行那个方法
+ if (this.options.operation === 'add') {
+              console.log('add')
+              this.$http.post(this.options.context.url, this.entity, {params: this.options.queryString}).then((response) => {
+                this._submitted(response.body).then(() => resolve())
+              })
+            } else if (this.options.operation === 'edit') {
+              let param = this.options.context.param ? '/' + this.options.context.param : ''
+              this.$http.put(this.options.context.url + param + '/' + this.entity.f_id, this.entity, {params: this.options.queryString}).then((response) => {
+                this._submitted(response.body).then(() => resolve())
+              })
+            } else {
+              if (this.options.method === 'POST') {
+                this.$http.post(this.options.context.url + '/' + this.entity.f_id + '/' + this.options.operation, this.entity, {params: this.options.queryString}).then((response) => {
+                  this._submitted(response.body).then(() => resolve())
+                })
+              } else {
+                this.$http.put(this.options.context.url + '/' + this.entity.f_id + '/' + this.options.operation, this.entity, {params: this.options.queryString}).then((response) => {
+                  this._submitted(response.body).then(() => resolve())
+                })
+              }
+            }
 ## Build Setup
 
 ``` bash
