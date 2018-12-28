@@ -6,10 +6,12 @@
 
 
    if (this.options.operation === 'add') {
+   
               console.log('add')
               this.$http.post(this.options.context.url, this.entity, {params: this.options.queryString}).then((response) => {
                 this._submitted(response.body).then(() => resolve())
               })
+              
             } 
            
            else if (this.options.operation === 'edit') {
