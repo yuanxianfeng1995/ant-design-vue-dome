@@ -8,17 +8,23 @@
               this.$http.post(this.options.context.url, this.entity, {params: this.options.queryString}).then((response) => {
                 this._submitted(response.body).then(() => resolve())
               })
-            } else if (this.options.operation === 'edit') {
+            } 
+           
+           else if (this.options.operation === 'edit') {
               let param = this.options.context.param ? '/' + this.options.context.param : ''
               this.$http.put(this.options.context.url + param + '/' + this.entity.f_id, this.entity, {params: this.options.queryString}).then((response) => {
                 this._submitted(response.body).then(() => resolve())
               })
-            } else {
+            } 
+            
+            else {
               if (this.options.method === 'POST') {
                 this.$http.post(this.options.context.url + '/' + this.entity.f_id + '/' + this.options.operation, this.entity, {params: this.options.queryString}).then((response) => {
                   this._submitted(response.body).then(() => resolve())
                 })
-              } else {
+              } 
+              
+              else {
                 this.$http.put(this.options.context.url + '/' + this.entity.f_id + '/' + this.options.operation, this.entity, {params: this.options.queryString}).then((response) => {
                   this._submitted(response.body).then(() => resolve())
                 })
