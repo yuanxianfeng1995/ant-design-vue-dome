@@ -3,7 +3,9 @@
 这个dome是精简版
 
 完整版想在form提交事件中根据传递的参数，判断执行那个方法
- if (this.options.operation === 'add') {
+
+
+   if (this.options.operation === 'add') {
               console.log('add')
               this.$http.post(this.options.context.url, this.entity, {params: this.options.queryString}).then((response) => {
                 this._submitted(response.body).then(() => resolve())
