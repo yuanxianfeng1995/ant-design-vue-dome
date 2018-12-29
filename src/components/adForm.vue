@@ -1,6 +1,6 @@
 <template>
   <a-form @submit="handleSubmit" :form="form" class="form" style="width: 500px;margin: 0 auto">
-    <slot name="fieldset"></slot>
+    <slot></slot>
   </a-form>
 </template>
 

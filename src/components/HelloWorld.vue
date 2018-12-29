@@ -1,6 +1,6 @@
 <template>
-  <ad-form>
-    <template slot="fieldset">
+  <ad-danlog>
+    <template slot-scope="{slotProps}">
       <a-row class="form-row" :gutter="16">
         <a-col :lg="6" :md="12" :sm="24">
           <a-form-item
@@ -73,11 +73,12 @@
         <a-button htmlType="submit">Submit</a-button>
       </a-form-item>
     </template>
-  </ad-form>
+  </ad-danlog>
 </template>
 
 <script>
   import adForm from './adForm'
+  import AdDanlog from "./adDanlog";
 
   export default {
     beforeCreate () {
@@ -91,6 +92,7 @@
       }
     },
     components: {
+      AdDanlog,
       adForm
     },
     methods: {}
